@@ -10,7 +10,6 @@ Example 2:
 Input: numRows = 1
 Output: [[1]]
  */
-code:
 class Solution {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> result =new ArrayList<>();
