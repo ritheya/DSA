@@ -10,27 +10,18 @@ Example 3:
 Input: x = 120
 Output: 21*/
 class Solution {
-    public List<String> summaryRanges(int[] nums) {
-        List<String> ans=new ArrayList<>();
-        int i=0;
-        while(i<nums.length){
-            int start=nums[i];
-            while(i<nums.length-1 && nums[i]+1 == nums[i+1])
-            {
-                i++;
-            }
-                 int end=nums[i];
-
+    public int reverse(int x) {
+        int reverse=0;
+        while(x != 0){
+            int digit=x%10;
+            if(reverse>Integer.MAX_VALUE/10 || (reverse==Integer.MAX_VALUE && digit>7)){
+            return 0;}
+            if(reverse<Integer.MIN_VALUE/10 || (reverse==Integer.MIN_VALUE && digit<-8)){
+            return 0;}
+            reverse=reverse*10+digit;
+            x=x/10;
+        }
+        return reverse;
         
-        if(start == end){
-            ans.add(String.valueOf(start));
-        }
-        else{
-            ans.add(start+ "->" +end);
-        }
-        i++;
     }
-      return ans;  
-    }
- 
 }
